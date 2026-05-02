@@ -62,6 +62,21 @@ export default function Connect() {
     return () => ctx.revert()
   }, [])
 
+  // Fallback: open mailto with the form's contents pre-filled.
+  const openMailtoFallback = () => {
+    const fd = new FormData(formRef.current)
+    const name = (fd.get('from_name') || '').toString().trim()
+    const fromEmail = (fd.get('from_email') || '').toString().trim()
+    const message = (fd.get('message') || '').toString().trim()
+    const subject = encodeURIComponent(
+      name ? `Portfolio contact from ${name}` : 'Portfolio contact'
+    )
+    const body = encodeURIComponent(
+      `From: ${name || '(no name)'} <${fromEmail || '(no email)'}>\n\n${message}`
+    )
+    window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (status === 'sending') return
@@ -77,8 +92,12 @@ export default function Connect() {
       setStatus('sent')
       formRef.current.reset()
     } catch (err) {
-      setStatus('error')
-      setErrMsg(err?.text || err?.message || 'Failed to send')
+      // Graceful fallback: hand off to the user's email client so the message
+      // never gets lost, even if EmailJS / Gmail OAuth is misconfigured.
+      console.warn('EmailJS failed, falling back to mailto:', err)
+      setStatus('fallback')
+      setErrMsg(err?.text || err?.message || 'Direct send unavailable')
+      setTimeout(openMailtoFallback, 50)
     }
   }
 
@@ -260,9 +279,12 @@ export default function Connect() {
             }}
           >
             <div className="font-mono" style={{ fontSize: 10, color: 'rgba(255,255,255,0.4)', letterSpacing: '0.1em' }}>
-              {status === 'idle' && '✱ Encrypted via EmailJS'}
+              {status === 'idle' && '✱ Sends instantly via EmailJS'}
               {status === 'sending' && <span style={{ color: '#ff6b85' }}>● TRANSMITTING…</span>}
               {status === 'sent' && <span style={{ color: '#67e8f9' }}>✓ MESSAGE RECEIVED — I'LL REPLY SOON</span>}
+              {status === 'fallback' && (
+                <span style={{ color: '#ff6b85' }}>↗ OPENING YOUR MAIL APP — JUST HIT SEND</span>
+              )}
               {status === 'error' && <span style={{ color: '#ff003c' }}>✕ {errMsg || 'TRANSMISSION FAILED'}</span>}
             </div>
             <button

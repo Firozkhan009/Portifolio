@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Analytics } from '@vercel/analytics/react'
 import SmoothScroll from './components/layout/SmoothScroll'
 import Cursor from './components/ui/Cursor'
 import Loader from './components/ui/Loader'
@@ -39,6 +40,8 @@ export default function App() {
         <Connect />
         <Footer />
       </main>
+
+      <Analytics />
     </SmoothScroll>
   )
 }
