@@ -65,7 +65,7 @@ export const profile = {
     statusLabel: 'in progress',
   },
   emailjs: {
-    serviceId: 'service_ftnqwfl',
+    serviceId: 'service_84uhg7z',
     templateId: 'template_hvr68e5',
     publicKey: 'qii46Ha0glBpdFlc3',
   },
