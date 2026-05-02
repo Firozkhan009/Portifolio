@@ -1,0 +1,72 @@
+export const profile = {
+  name: 'Firoz Khan Patan',
+  firstName: 'Firoz Khan',
+  lastName: 'Patan',
+  title: 'Software / AI Engineer',
+  shortTitle: 'SWE / AI ENGINEER',
+  location: 'Athens, GA, USA',
+  shortLocation: 'Athens, GA',
+  email: 'firozkhanp009@gmail.com',
+  resumePath: '/ResumeH.pdf',
+  tagline: 'I build AI systems that ship — from LLM pipelines to ML research, end to end.',
+  bio: 'Building production GenAI pipelines and shipping ML research from paper to code. Looking for full-time roles in AI/ML engineering or full-stack SWE.',
+  longBio:
+    "M.S. Computer Science at the University of Georgia. I build production-grade GenAI systems and ship ML research from paper to code — from LLM-powered news pipelines and resume analyzers to PyTorch implementations of ICML papers. Comfortable across the stack: FastAPI, React, PyTorch, Docker, and the OpenAI/Anthropic ecosystems.",
+  status: {
+    open: true,
+    label: 'OPEN TO WORK',
+    detail: 'Full-time SWE / AI Engineer roles · Available May 2026',
+  },
+  socials: {
+    github: 'https://github.com/Firozkhan009',
+    githubHandle: '@Firozkhan009',
+    linkedin: 'https://www.linkedin.com/in/firoz-khan-patan/',
+    linkedinHandle: '/in/firoz-khan-patan',
+    email: 'mailto:firozkhanp009@gmail.com',
+  },
+  education: [
+    {
+      school: 'University of Georgia',
+      degree: 'M.S. Computer Science',
+      gpa: '3.52 / 4.00',
+      period: 'Aug 2024 – May 2026',
+      location: 'Athens, GA',
+    },
+    {
+      school: 'Sathyabama Institute of Science and Technology',
+      degree: 'B.E. Computer Science',
+      gpa: '8.26 / 10.00',
+      period: 'Aug 2020 – Apr 2024',
+      location: 'Chennai, India',
+    },
+  ],
+  experience: {
+    role: 'Software Developer Intern',
+    company: 'Prochal Technologies Pvt. Ltd.',
+    location: 'Hyderabad, India',
+    period: 'Jan 2024 – Jun 2024',
+  },
+  publication: {
+    title: 'Crime Analysis and Detection Based on Location Using Machine Learning',
+    venue: 'AIP Conference Proceedings, Vol. 3257, Art. 020033',
+    presented: 'ICCCAI 2024',
+    date: 'July 2025',
+    authors: 'Firoz Khan Patan, S. L. JanyShabu, V. Peddineni',
+  },
+  stats: [
+    { value: 4, suffix: '+', label: 'PROJECTS SHIPPED' },
+    { value: 1, suffix: '', label: 'PUBLISHED PAPER' },
+    { value: 6, suffix: ' mo', label: 'INDUSTRY EXP.' },
+    { value: 3.52, suffix: '/4', label: 'M.S. CS · GPA', decimals: 2 },
+  ],
+  currentlyBuilding: {
+    name: 'AI News Aggregator',
+    detail: 'GenAI pipeline · GPT-4o digests',
+    statusLabel: 'in progress',
+  },
+  emailjs: {
+    serviceId: 'service_ftnqwfl',
+    templateId: 'template_hvr68e5',
+    publicKey: 'qii46Ha0glBpdFlc3',
+  },
+}
